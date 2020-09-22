@@ -1,0 +1,12 @@
+
+*.pyc
+*.toc
+build/pasta/base_library.zip
+build/pasta/pasta.exe.manifest
+build/pasta/PKG-00.pkg
+build/pasta/PYZ-00.pyz
+build/pasta/warn-pasta.txt
+build/pasta/xref-pasta.html
+*.exe
+test.py
+pasta.spec
