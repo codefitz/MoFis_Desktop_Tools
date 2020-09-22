@@ -4,8 +4,6 @@
 | - |
 | 0.1 |
 
-[[TOC]]
-
 ## Summary
 
 A small app for working with remote environments (such as Citrix) where copy and paste functionality has been disabled.
@@ -26,20 +24,24 @@ Because this is not true copy and paste functionality, there may be bugs - parti
 
 1. Copy the block of text you need
 
-![25746d229aa12bd0e564baf4a84191fd.png](:/4c91b4ec95d542dab9234bc67db414c7)
+![Copy Text](4c91b4ec95d542dab9234bc67db414c7.png?raw=true)
 
 3. Run the executable "pasta.exe"
 4. Have your Notepad/Text app open on the target desktop
 
-![74504af49ab7995705350aa91f8bca9d.png](:/2bf244f3161541a1a0a0949e5f0a0b18)
+![Ready to Paste](2bf244f3161541a1a0a0949e5f0a0b18.png?raw=true)
 
 5. Click the "Ready" button
 6. During the 3 second countdown, hover over your target window
 7. Marvel at how quickly you typed that document!
 
-![0b24d3d5c5973d435c76f67c6e390aa0.png](:/f1956e3209c5413ba13db32ccc0581f4)
+![Marvel](f1956e3209c5413ba13db32ccc0581f4.png?raw=true)
 
 # FAQ
+
+### Can I modify this?
+
+Absolutely - if you have any improvements, please send a pull request!
 
 ### Can this copy rich text format or pictures?
 
