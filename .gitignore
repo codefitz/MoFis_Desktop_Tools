@@ -10,3 +10,10 @@ build/pasta/xref-pasta.html
 *.exe
 test.py
 pasta.spec
+*.zip
+build/mouse_jiggle/mouse_jiggle.exe.manifest
+*.pkg
+*.pyz
+build/mouse_jiggle/warn-mouse_jiggle.txt
+build/mouse_jiggle/xref-mouse_jiggle.html
+*.spec
