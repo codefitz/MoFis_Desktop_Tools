@@ -43,7 +43,6 @@ python screen_share_window.py
 2. Resize and move the window to the desired portion of the screen.
 3. The window will snap to the screen edges for easy resizing.
 4. When you move the mouse over the edges and corners of the window, the cursor will change to indicate resizing.
-5. Click the "X" button on the title bar to close the window.
 
 ## License
 
