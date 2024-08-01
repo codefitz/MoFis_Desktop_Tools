@@ -5,25 +5,30 @@ This project creates a transparent, resizable, and movable overlay window for sc
 ## Features
 
 - **Resizable and movable window:** The window can be resized and moved around the screen.
-- **Snapping behavior:** The window snaps to the screen edges for easy resizing.
 - **Transparent regions:** You can see through the window except for the border and title bar.
-- **Easy to use:** Simple controls for closing, moving, and resizing the window.
-- **Mouse cursor changes:** The mouse cursor changes when hovering over the edges and corners to indicate resizing.
+- **Easy to use:** Simple controls for opening, closing, minimizing, restoring, and resizing the window.
+- **Expand options:** Expand the window to full screen, left screen, or right screen with a single click.
 
 ## Prerequisites
 
 - Python 3.x
 - `tkinter` for the GUI
-- `pygetwindow` for handling window snapping
 
 ## Installation
 
 1. Clone the repository:
 
    ```bash
+   git clone https://github.com/codefitz/screen-share-window.git
    ```
 
-2. Install the required Python package:
+2. Navigate to the project directory:
+
+   ```bash
+   cd screen-share-window
+   ```
+
+3. Install any additional required Python packages if needed (e.g., `pygetwindow` for handling window snapping):
 
    ```bash
    pip install pygetwindow
@@ -31,23 +36,14 @@ This project creates a transparent, resizable, and movable overlay window for sc
 
 ## Usage
 
-Run the `ss_window.py` script:
+Run the `screen_share_window.py` script:
 
 ```bash
-python screen_share_window.py
+python screen_share_window.pyw
 ```
 
-## How to Use
-
-1. Run the script to open the overlay window.
-2. Resize and move the window to the desired portion of the screen.
-3. The window will snap to the screen edges for easy resizing.
-4. When you move the mouse over the edges and corners of the window, the cursor will change to indicate resizing.
+Or double-click from Windows Explorer.
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](../LICENSE) file for details.
-
----
-
-Feel free to customize the README as needed for your repository.
