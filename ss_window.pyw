@@ -1,14 +1,17 @@
 import tkinter as tk
+import ctypes
+import sys
 
 class Overlay(tk.Toplevel):
     def __init__(self, master=None):
         super().__init__(master)
         self.title("Overlay")
         self.attributes('-topmost', True)
-        self.overrideredirect(True)  # Remove the window controls
+        self.geometry("622x422")
+        # self.overrideredirect(True)  # Comment out this line to keep window decorations
 
         # Create a border frame with a different background color
-        self.border_frame = tk.Frame(self, bg='red', width=622, height=422)
+        self.border_frame = tk.Frame(self, bg='white', width=622, height=422)
         self.border_frame.pack_propagate(False)
         self.border_frame.pack(fill=tk.BOTH, expand=True)
 
@@ -17,11 +20,15 @@ class Overlay(tk.Toplevel):
         self.inner_frame.pack(fill=tk.BOTH, expand=True, padx=2, pady=2)  # Ensure padding for border
 
         # Create a handle for dragging the overlay
-        self.drag_handle = tk.Frame(self.inner_frame, bg='red', width=100, height=20)
+        self.drag_handle = tk.Frame(self.inner_frame, bg='grey', width=100, height=20)
         self.drag_handle.place(relx=0.5, rely=0, anchor='n')
         self.drag_handle.bind("<ButtonPress-1>", self.start_drag)
         self.drag_handle.bind("<B1-Motion>", self.do_drag)
-        
+
+        # Add text to the drag handle
+        self.drag_text = tk.Label(self.drag_handle, text="Overlay", bg='grey', fg='white')
+        self.drag_text.pack(fill=tk.BOTH, expand=True)
+
         self.resizing = False
         self.start_x = None
         self.start_y = None
@@ -48,6 +55,30 @@ class Overlay(tk.Toplevel):
         x = (screen_width // 2) - (self.border_frame.winfo_reqwidth() // 2)
         y = (screen_height // 2) - (self.border_frame.winfo_reqheight() // 2)
         self.geometry(f"+{x}+{y}")
+
+        # Set the window style to shrink the title bar (for Windows only)
+        if sys.platform == "win32":
+            hwnd = ctypes.windll.user32.GetParent(self.winfo_id())
+            self.set_window_style(hwnd)
+
+    def set_window_style(self, hwnd):
+        # Constants for setting window styles
+        GWL_STYLE = -16
+        WS_CAPTION = 0x00C00000
+        WS_BORDER = 0x00800000
+        WS_THICKFRAME = 0x00040000
+
+        # Get the current style
+        current_style = ctypes.windll.user32.GetWindowLongW(hwnd, GWL_STYLE)
+
+        # Remove the thickframe (resizable border) and border, but keep the title bar
+        new_style = current_style & ~WS_THICKFRAME & ~WS_BORDER
+
+        # Apply the new style
+        ctypes.windll.user32.SetWindowLongW(hwnd, GWL_STYLE, new_style)
+
+        # Apply the changes immediately
+        ctypes.windll.user32.SetWindowPos(hwnd, None, 0, 0, 0, 0, 0x0273)
 
     def start_drag(self, event):
         self.dragging = True

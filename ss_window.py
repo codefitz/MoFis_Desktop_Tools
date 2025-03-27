@@ -5,7 +5,8 @@ class Overlay(tk.Toplevel):
         super().__init__(master)
         self.title("Overlay")
         self.attributes('-topmost', True)
-        self.overrideredirect(True)  # Remove the window controls
+        self.geometry("622x422")
+        # self.overrideredirect(True)  # Comment out this line to keep window decorations
 
         # Create a border frame with a different background color
         self.border_frame = tk.Frame(self, bg='red', width=622, height=422)
