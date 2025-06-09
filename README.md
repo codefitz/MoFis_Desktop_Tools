@@ -23,3 +23,4 @@ pip install -r requirements.txt
 | - | - |
 | 0.2 | Added a mouse-jiggler tool. |
 | 0.3 | Added screen-sharing window for ultra-wide monitor setups. Renamed repository. |
+| 0.0.4 | Added dependency list and shebangs; general cleanup. |
