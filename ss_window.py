@@ -22,6 +22,7 @@ class Overlay(tk.Toplevel):
         self.drag_handle.place(relx=0.5, rely=0, anchor='n')
         self.drag_handle.bind("<ButtonPress-1>", self.start_drag)
         self.drag_handle.bind("<B1-Motion>", self.do_drag)
+        self.drag_handle.bind("<ButtonRelease-1>", self.stop_drag)
         
         self.resizing = False
         self.start_x = None
