@@ -8,6 +8,15 @@ A small collection of desktop tools to work around silly corporate environment r
 - [ss_window.py](./docs/ss-window.md)
 - [mouse_jiggle.py](./docs/mouse.md)
 
+## Installation
+
+Clone the repository and install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+
 ## Version History
 
 | Version | Description |
