@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Mouse Jiggle
 #
 # Author: Wes Moskal-Fitzpatrick

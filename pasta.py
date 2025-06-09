@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Pasta - One Way Super-Paste
 #
 # Author: Wes Moskal-Fitzpatrick
