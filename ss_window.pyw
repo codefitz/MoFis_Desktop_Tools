@@ -24,6 +24,7 @@ class Overlay(tk.Toplevel):
         self.drag_handle.place(relx=0.5, rely=0, anchor='n')
         self.drag_handle.bind("<ButtonPress-1>", self.start_drag)
         self.drag_handle.bind("<B1-Motion>", self.do_drag)
+        self.drag_handle.bind("<ButtonRelease-1>", self.stop_drag)
 
         # Add text to the drag handle
         self.drag_text = tk.Label(self.drag_handle, text="Overlay", bg='grey', fg='white')
