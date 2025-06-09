@@ -18,7 +18,6 @@
 import tkinter
 import time
 import pyautogui
-import win32api
 import keyboard
 
 def countDown():
