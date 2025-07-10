@@ -4,6 +4,9 @@
 
 Mouse Jiggle is a simple Python script designed to keep your remote desktop session active by slightly moving the mouse cursor at regular intervals. This prevents the remote desktop from logging out due to inactivity.
 
+> **Warning**
+> Use only where permitted. Simulating activity may violate corporate policies.
+
 ## Author
 
 Wes Moskal-Fitzpatrick
@@ -32,10 +35,11 @@ Wes Moskal-Fitzpatrick
 
 1. Clone this repository or download the script directly.
 
-2. Run the script using Python:
+2. Run the script using Python. You can change the distance moved and pause
+   between movements:
 
    ```bash
-   python mouse_jiggle.py
+   python mouse_jiggle.py --distance 10 --interval 1.0
    ```
 
 ### How It Works

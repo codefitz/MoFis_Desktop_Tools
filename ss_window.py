@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
+
 import tkinter as tk
+
 
 class Overlay(tk.Toplevel):
     def __init__(self, master=None):
@@ -24,7 +26,7 @@ class Overlay(tk.Toplevel):
         self.drag_handle.bind("<ButtonPress-1>", self.start_drag)
         self.drag_handle.bind("<B1-Motion>", self.do_drag)
         self.drag_handle.bind("<ButtonRelease-1>", self.stop_drag)
-        
+
         self.resizing = False
         self.start_x = None
         self.start_y = None

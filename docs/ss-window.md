@@ -2,6 +2,9 @@
 
 This project creates a transparent, resizable, and movable overlay window for screen sharing on ultra-wide monitors. It allows you to share a portion of your desktop without having to set a specific application, enabling seamless switching between different applications during screen sharing sessions.
 
+> **Reminder**
+> Ensure screen sharing tools like this comply with your organization's security policies.
+
 ## Features
 
 - **Resizable and movable window:** The window can be resized and moved around the screen.
@@ -42,7 +45,9 @@ Run the `screen_share_window.py` script:
 python screen_share_window.pyw
 ```
 
-Or double-click from Windows Explorer.
+`screen_share_window.pyw` launches the GUI without opening a console window on
+Windows. Use `screen_share_window.py` if you prefer to see console output. You
+can also double-click the `.pyw` file from Explorer.
 
 ## License
 

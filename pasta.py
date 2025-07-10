@@ -16,46 +16,65 @@
 # 2020-09-24 : 0.2 : WMF : Removed commented out test code.
 #
 
+import argparse
 import tkinter
 import time
 import pyautogui
 import keyboard
 
-def countDown():
-    '''start countdown seconds'''
-    for k in range(3, -1, -1):
-        clock["text"] = k
-        time.sleep(1)
-        root.update() # Tk needs this after sleep()
-    clock["text"] = "Done"
 
-root = tkinter.Tk()
-root.geometry("200x100")
-root.title('Pasta')
-root.attributes("-topmost", True)
+def main(countdown):
+    def countDown():
+        """start countdown seconds"""
+        for k in range(countdown, -1, -1):
+            clock["text"] = k
+            time.sleep(1)
+            root.update()  # Tk needs this after sleep()
+        clock["text"] = "Done"
 
-def submitFunction():
-    global clipboard
-    button.place_forget()
-    countDown()
-    
-    # Click into window
-    x, y = pyautogui.position()
-    pyautogui.click(x, y)
+    root = tkinter.Tk()
+    root.geometry("200x100")
+    root.title('Pasta')
+    root.attributes("-topmost", True)
 
-    # "Paste"
-    keyboard.write(clipboard)
-    ready.set(1)
+    def submitFunction():
+        button.place_forget()
+        countDown()
 
-clipboard = root.clipboard_get()
+        # Click into window
+        x, y = pyautogui.position()
+        pyautogui.click(x, y)
 
-clock = tkinter.Label()
-clock.place(relx=.5, rely=.7, anchor="c")
+        # "Paste"
+        keyboard.write(clipboard)
+        ready.set(1)
 
-ready = tkinter.IntVar()
-info = tkinter.Label(text="Click 'Ready' and select the window to paste to...", wraplength=150, justify="left")
-info.place(relx=.1, rely=.1)
-button = tkinter.Button(root, text="Ready", command=submitFunction)
-button.place(relx=.5, rely=.7, anchor="c")
+    clipboard = root.clipboard_get()
 
-root.wait_variable(ready)
+    clock = tkinter.Label()
+    clock.place(relx=.5, rely=.7, anchor="c")
+
+    ready = tkinter.IntVar()
+    info = tkinter.Label(
+        text="Click 'Ready' and select the window to paste to...",
+        wraplength=150,
+        justify="left",
+    )
+    info.place(relx=.1, rely=.1)
+    button = tkinter.Button(root, text="Ready", command=submitFunction)
+    button.place(relx=.5, rely=.7, anchor="c")
+
+    root.wait_variable(ready)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Re-type clipboard text")
+    parser.add_argument(
+        "-t",
+        "--timer",
+        type=int,
+        default=3,
+        help="Countdown in seconds before typing begins",
+    )
+    args = parser.parse_args()
+    main(args.timer)
